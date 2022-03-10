@@ -16,11 +16,18 @@ public class Classroom {
         Student[] student = new Student[max];
     }
 
-//    public Student getStudents(){
-//
-//        return Student;
-//    }
+   public Student[] getStudents(){
+        Student[] students = this.students;
+        return students;
+   }
 
-
+   public Double getAverageExamScore(){
+        Double average = 0.0;
+        for(int i = 0; i <students.length; i++){
+        average+= students[i].getAverageExamScore();
+        }
+        average /= students.length;
+        return average;
+   }
 
 }
