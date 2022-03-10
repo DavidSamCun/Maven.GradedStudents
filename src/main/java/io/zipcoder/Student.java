@@ -28,22 +28,16 @@ public class Student {
 //        }
     }
 
-//    Not needed because takeExam method?
     public void addScore(double score){
         examScores.add(score);
     }
 
     public String getExamScores(){
-
         String output ="Exam Scores: \n";
         int examNum = 1; //incase I need for exam numbering
-
         for (int i = 0; i < examScores.size(); i++){
-
            output += "        Exam " + (i+1) + " -> " + examScores.get(i) + "\n";
-
         }
-
         return output;
     }
 
@@ -51,5 +45,26 @@ public class Student {
         return examScores.size();   //Size of list is size of exams taken
     }
 
+    public void setExamScore(int test, Double newScore){
+        examScores.set(test-1, newScore);
+    }
 
+    public Double getAverageExamScore(){
+
+        Double averageScore = 0.0;
+
+        for(int i = 0; i < examScores.size(); i++){ //add exam scores
+            averageScore += examScores.get(i);
+            }
+        return averageScore/examScores.size();
+    }
+
+    public String toString(){
+
+        String output = "Student Name: " + this.firstName + " " + this.lastName + "\n"
+                + "> Average Score: " + getAverageExamScore() + "\n"
+                + "> " + getExamScores();
+
+        return output;
+    }
 }
