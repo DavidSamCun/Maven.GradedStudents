@@ -24,18 +24,22 @@ public class Classroom {
    }
 
    public Double getAverageClassExamScore() {
-       Double studentScore = 0.0;
        Double total = 0.0;
-       System.out.println(students.length);
        int amountOfStudents = 0;
-       for (int i = 0; i < students.length; i++) {
-           if (students[i] != null) {
-               total += students[i].getAverageExamScore();
+//       for (int i = 0; i < students.length; i++) {
+//           if (students[i] != null) {
+//               total += students[i].getAverageExamScore();
+//               amountOfStudents++;
+//           }
+//
+//       }
+       for (Student a : students) {
+           if (a != null) {
+               total += a.getAverageExamScore();
                amountOfStudents++;
            }
 
        }
-       System.out.println(total/students.length);
        return total/amountOfStudents;
    }
 

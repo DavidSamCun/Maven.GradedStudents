@@ -36,7 +36,7 @@ public class ClassroomTest {
 
         Student[] students = {s1,s2, null};
         Classroom classroom = new Classroom(students);
-        classroom.addStudent(s3);
+        //classroom.addStudent(s3);
 
 
         // When
