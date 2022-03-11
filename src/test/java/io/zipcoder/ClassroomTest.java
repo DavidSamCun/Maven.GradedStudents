@@ -59,7 +59,9 @@ public class ClassroomTest {
 
         // When
         Student[] preEnrollment = classroom.getStudents();
+
         classroom.addStudent(student);
+
         Student[] postEnrollment = classroom.getStudents();
 
         // Then
