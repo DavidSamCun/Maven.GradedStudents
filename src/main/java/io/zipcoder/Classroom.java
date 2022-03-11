@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.lang.NullPointerException;
+
 
 public class Classroom {
 
@@ -20,8 +22,16 @@ public class Classroom {
 
    public Student[] getStudents(){
         Student[] students = this.students;
-        return students;
-   }
+//        return students;
+       try{
+           return students;
+       }
+       catch(NullPointerException e){
+           System.out.println("NullPointerException thrown!");
+       }
+
+       return students;
+    }
 
    public Double getAverageClassExamScore() {
        Double total = 0.0;
@@ -48,10 +58,22 @@ public class Classroom {
         for(int i = 0; i < students.length; i++){
             if(students[i] == null){
                 students[i] = newStudent;
-            } else {
-                System.out.println("We're full");
+            } else if (students[students.length -1] != null){
+                System.out.println("Sorry, class is full");
+                break;
             }
         }
+//       int last = students.length;
+//       int i = 0;
+//       for(Student a : students){
+//           if(a == null){
+//               a = newStudent;
+//           } else if (i == students.length -1){
+//               System.out.println("We're full");
+//           }
+//           i++;
+//       }
+
    }
 
 }
