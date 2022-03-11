@@ -24,15 +24,16 @@ public class Classroom {
     }
 
    public Student[] getStudents(){
+
 //        Student[] students = this.students;
 //        return students;
-//       try{
-//           return students;
-//       }
-//       catch(NullPointerException e){
-//           System.out.println("NullPointerException thrown!");
-//       }
 
+       try{
+           return students;
+       }
+       catch(NullPointerException e){
+           System.out.println("NullPointerException thrown!");
+       }
        return students;
     }
 

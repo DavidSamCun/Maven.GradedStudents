@@ -12,8 +12,12 @@ public class Student {
 
     public Student(){
 
-        this.firstName = "First Name";
-        this.lastName = "Last Name";
+//        this.firstName = "First Name";
+//        this.lastName = "Last Name";
+        this.firstName = "";
+        this.lastName = "";
+        this.examScores = new ArrayList<>();
+
 
     }
 
@@ -26,6 +30,14 @@ public class Student {
 //        for(int i = 0; i < scores.length; i++){ //add exam scores
 //            examScores.add(scores[i]);
 //        }
+    }
+
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    public String getLastName(){
+        return this.lastName;
     }
 
     public void addScore(double score){

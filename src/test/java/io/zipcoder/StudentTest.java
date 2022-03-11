@@ -1,18 +1,42 @@
 package io.zipcoder;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class StudentTest {
 
 
     @Test
-    public void createStudent(){
+    public void getFirstNameTest(){
 
-        //When
+        //Given
         String nameFirst1 = "Dwight";
         String nameLast1 = "Howard";
+        Double[] score = {0.0};
+
+        //When
+        Student s1 = new Student(nameFirst1, nameLast1, score);
+        String actual = s1.getFirstName();
 
         //Then
+        Assert.assertEquals(nameFirst1, actual);
+
+    }
+
+    @Test
+    public void getLastNameTest(){
+
+        //Given
+        String nameFirst1 = "Dwight";
+        String nameLast1 = "Howard";
+        Double[] score = {0.0};
+
+        //When
+        Student s1 = new Student(nameFirst1, nameLast1, score);
+        String actual = s1.getFirstName();
+
+        //Then
+        Assert.assertEquals(nameFirst1, actual);
 
     }
 
