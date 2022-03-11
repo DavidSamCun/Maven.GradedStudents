@@ -51,12 +51,12 @@ public class Student {
 
     public Double getAverageExamScore(){
 
-        Double averageScore = 0.0;
+        Double totalScore = 0.0;
 
         for(int i = 0; i < examScores.size(); i++){ //add exam scores
-            averageScore += examScores.get(i);
+            totalScore += examScores.get(i);
             }
-        return averageScore/examScores.size();
+        return totalScore/examScores.size();
     }
 
     public String toString(){
