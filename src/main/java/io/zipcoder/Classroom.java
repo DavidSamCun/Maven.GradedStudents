@@ -97,6 +97,7 @@ public class Classroom {
        Collections.sort(studentList, new Comparator<Student>() {
 
            public int compare(Student o1, Student o2) {
+
                return 0;
            }
        });
@@ -108,32 +109,18 @@ public class Classroom {
 
     public void removeStudent(String firstName, String lastName){
         List<Student> studentList = new ArrayList<>();
-
-        int indexCount = 0;
         int removeIndex =  0;
-//        for(Student a : students){
-//            studentList.add(a);
-//            indexCount++;
-//            if(a.getFirstName().equals(firstName) && a.getLastName().equals(lastName)){
-//                removeIndex = indexCount;
-//            }
-//        }
-
             for(int i = 0; i<students.length; i++){
                 if(students[i]==null){
                     break;
                 }
                 studentList.add(students[i]);
                 if(students[i].getFirstName().equals(firstName) && students[i].getLastName().equals(lastName)){
-                    removeIndex = indexCount;
+                    removeIndex = i;
             }
-            indexCount++;
         }
-
         studentList.remove(removeIndex);
-
         studentList.toArray(students);
     }
-
 
 }

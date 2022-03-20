@@ -104,5 +104,12 @@ public class ClassroomTest {
 
     }
 
+    @Test
+    public void studentScoreTest(){
+        Classroom classroom = new Classroom(5);
+
+
+    }
+
 
 }
