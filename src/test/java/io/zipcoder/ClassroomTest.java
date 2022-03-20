@@ -52,7 +52,7 @@ public class ClassroomTest {
     public void addStudentTest(){
 
         // : Given
-        int maxNumberOfStudents = 2;
+        int maxNumberOfStudents = 3;
         Classroom classroom = new Classroom(maxNumberOfStudents);
         Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
         Student student1 = new Student("Leon", "Hunter");
@@ -97,6 +97,9 @@ public class ClassroomTest {
 
         classroom.removeStudent("student", "one");
 
+        Student[] postEnrollment = classroom.getStudents();
+        String postEnrollmentAsString = Arrays.toString(postEnrollment);
+        System.out.println(postEnrollmentAsString);
 
 
     }
