@@ -99,7 +99,14 @@ public class Classroom {
            if(students[i]==null){
                break;
            }
-           if(students[i].getAverageExamScore().compareTo(students[i+1].getAverageExamScore()) < 0){
+           if(students[i].getAverageExamScore().compareTo(students[i+1].getAverageExamScore()) == 0){
+               if(students[i].getLastName().compareTo(students[i+1].getLastName()) > 0){
+                   temp = students[i + 1];
+                   students[i+1] = students[i];
+                   students[i] = temp;
+                   i=-1;
+               }
+           } else if(students[i].getAverageExamScore().compareTo(students[i+1].getAverageExamScore()) < 0){
                temp = students[i + 1];
                students[i+1] = students[i];
                students[i] = temp;
