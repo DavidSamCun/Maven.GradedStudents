@@ -10,6 +10,7 @@ import java.util.List;
 public class Classroom {
 
     private Student[] students;
+    //private int classSize;
 
     public Classroom(){
         this.students = new Student[30];
@@ -20,6 +21,7 @@ public class Classroom {
     }
 
     public Classroom(int max){
+        //this.classSize = max;
         this.students = new Student[max];
     }
 
@@ -31,6 +33,11 @@ public class Classroom {
 //       }
 //       catch(NullPointerException e){
 //           System.out.println("NullPointerException thrown!");
+//       }
+
+//       if(students[0] == (null)){                 //Didn't work
+//           Student blank = new Student("", "");
+//           students[0] = blank;
 //       }
 
        return students;
@@ -64,6 +71,7 @@ public class Classroom {
             for (int i = 0; i < students.length; i++) {
                 if (students[i] == null) {
                     students[i] = newStudent;
+                    break;
                 } else if (students[students.length - 1] != null) {
                     System.out.println("Sorry, class is full");
                     break;
@@ -92,12 +100,40 @@ public class Classroom {
                return 0;
            }
        });
-
-
         return null;
    }
-
  /*   The class Classroom should define a method getStudentsByScore() which returns an array representation of Student objects sorted in descending order by score.
     If two students have the same class average, order them lexigraphically.*/
+
+
+    public void removeStudent(String firstName, String lastName){
+        List<Student> studentList = new ArrayList<>();
+
+        int indexCount = 0;
+        int removeIndex =  0;
+//        for(Student a : students){
+//            studentList.add(a);
+//            indexCount++;
+//            if(a.getFirstName().equals(firstName) && a.getLastName().equals(lastName)){
+//                removeIndex = indexCount;
+//            }
+//        }
+
+            for(int i = 0; i<students.length; i++){
+                if(students[i]==null){
+                    break;
+                }
+                studentList.add(students[i]);
+                if(students[i].getFirstName().equals(firstName) && students[i].getLastName().equals(lastName)){
+                    removeIndex = indexCount;
+            }
+            indexCount++;
+        }
+
+        studentList.remove(removeIndex);
+
+        studentList.toArray(students);
+    }
+
 
 }
