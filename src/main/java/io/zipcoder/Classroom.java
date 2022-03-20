@@ -93,15 +93,35 @@ public class Classroom {
 
    public Student[] getStudentsByScore(){
 
-        List<Student> studentList = new ArrayList<Student>();
-       Collections.sort(studentList, new Comparator<Student>() {
-
-           public int compare(Student o1, Student o2) {
-
-               return 0;
+      // List<Student> studentList = new ArrayList<>();
+       Student temp = new Student();
+       for(int i = 0; i<students.length-1; i++){
+           if(students[i]==null){
+               break;
            }
-       });
-        return null;
+           if(students[i].getAverageExamScore().compareTo(students[i+1].getAverageExamScore()) < 0){
+               temp = students[i + 1];
+               students[i+1] = students[i];
+               students[i] = temp;
+               i=-1;
+           }
+           //studentList.add(students[i]);
+       }
+
+
+       return students;
+       //return studentList.toArray(students);
+
+
+//        List<Student> studentList = new ArrayList<Student>();
+//       Collections.sort(studentList, new Comparator<Student>() {
+//
+//           public int compare(Student o1, Student o2) {
+//
+//               return 0;
+//           }
+//       });
+//        return null;
    }
  /*   The class Classroom should define a method getStudentsByScore() which returns an array representation of Student objects sorted in descending order by score.
     If two students have the same class average, order them lexigraphically.*/

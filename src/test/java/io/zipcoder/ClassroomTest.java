@@ -108,6 +108,28 @@ public class ClassroomTest {
     public void studentScoreTest(){
         Classroom classroom = new Classroom(5);
 
+        Double[] score1 = {40.0, 50.0, 60.0};
+        Double[] score2 = {20.0, 30.0, 40.0};
+        Double[] score3 = {10.0, 20.0, 30.0};
+        Double[] score4 = {70.0, 80.0, 90.0};
+        Double[] score5 = {90.0, 100.0, 110.0};
+
+        Student s1 = new Student("Albert", "Ainstein", score4);
+        Student s2 = new Student("Berry", "Birchwood", score3);
+        Student s3 = new Student("Charlie", "Chapel", score5);
+        Student s4 = new Student("Darryl", "Dover", score2);
+        Student s5 = new Student("Earl", "Elastic", score1);
+
+        classroom.addStudent(s1);
+        classroom.addStudent(s2);
+        classroom.addStudent(s3);
+        classroom.addStudent(s4);
+        classroom.addStudent(s5);
+
+        Student[] gradesFirst = classroom.getStudentsByScore();
+        String gradeOrder = Arrays.toString(gradesFirst);
+        System.out.println(gradeOrder);
+
 
     }
 
