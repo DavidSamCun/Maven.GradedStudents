@@ -1,5 +1,6 @@
 package io.zipcoder;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -159,6 +160,44 @@ public class ClassroomTest {
         String gradeOrder = Arrays.toString(gradesFirst);
         System.out.println(gradeOrder);
 
+
+    }
+
+    @Test
+    public void getGradeBookTest(){
+        Classroom classroom = new Classroom(10);
+
+        Double[] score1 = {40.0, 50.0, 60.0};
+        Double[] score2 = {20.0, 30.0, 40.0};
+        Double[] score3 = {10.0, 20.0, 30.0};
+        Double[] score4 = {70.0, 80.0, 90.0};
+        Double[] score5 = {90.0, 100.0, 110.0};
+
+        Student s2 = new Student("Berry", "Birchwood", score3);
+        Student s3 = new Student("Charlie", "Chapel", score5);
+        Student s4 = new Student("Darryl", "Dover", score3);
+        Student s1 = new Student("Albert", "Ainstein", score4);
+        Student s5 = new Student("Earl", "Elastic", score1);
+        Student s6 = new Student("Frankie", "Furnace", score3);
+        Student s7 = new Student("Gary", "Galapogus", score5);
+        Student s8 = new Student("Henry", "Horse", score3);
+        Student s9 = new Student("Isac", "Igloo", score4);
+        Student s10 = new Student("Jerry", "Jester", score1);
+
+        classroom.addStudent(s1);
+        classroom.addStudent(s2);
+        classroom.addStudent(s3);
+        classroom.addStudent(s4);
+        classroom.addStudent(s5);
+        classroom.addStudent(s6);
+        classroom.addStudent(s7);
+        classroom.addStudent(s8);
+        classroom.addStudent(s9);
+        classroom.addStudent(s10);
+
+        //Assert.assertEquals(s3, classroom.getGradeBook().get("A"));
+        Assert.assertEquals(s4, classroom.getGradeBook().get("B"));
+        //Assert.assertEquals(classroom.getGradeBook().get("A"), s3);
 
     }
 

@@ -1,16 +1,12 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.lang.NullPointerException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 
 public class Classroom {
 
     private Student[] students;
-    //private int classSize;
 
     public Classroom(){
         this.students = new Student[30];
@@ -21,7 +17,6 @@ public class Classroom {
     }
 
     public Classroom(int max){
-        //this.classSize = max;
         this.students = new Student[max];
     }
 
@@ -93,8 +88,7 @@ public class Classroom {
 
    public Student[] getStudentsByScore(){
 
-      // List<Student> studentList = new ArrayList<>();
-       Student temp = new Student();
+       Student temp;
        for(int i = 0; i<students.length-1; i++){
            if(students[i]==null){
                break;
@@ -112,10 +106,7 @@ public class Classroom {
                students[i] = temp;
                i=-1;
            }
-           //studentList.add(students[i]);
        }
-
-
        return students;
        //return studentList.toArray(students);
 
@@ -150,4 +141,53 @@ public class Classroom {
         studentList.toArray(students);
     }
 
+    public TreeMap<String, List<Student>> getGradeBook(){
+
+        TreeMap<String, List<Student>> gradebook = createGradeBook();
+
+        Student[] orderedList = getStudentsByScore();
+        int amntStdnt = studentCount();
+
+        for (int i = 0; i < studentCount(); i++){
+            if( (float) i/amntStdnt <= .10){
+                gradebook.get("A").add(orderedList[i]);
+            }
+            if( (float) i/amntStdnt <= .29){
+                gradebook.get("B").add(orderedList[i]);
+            }
+            if( (float) i/amntStdnt <= .50){
+                gradebook.get("C").add(orderedList[i]);
+            }
+            if( (float) i/amntStdnt <= .89){
+                gradebook.get("D").add(orderedList[i]);
+            }
+            if( (float) i/amntStdnt <= 1.00){
+                gradebook.get("F").add(orderedList[i]);
+            }
+        }
+        return gradebook;
+    }
+
+    public TreeMap<String, List<Student>> createGradeBook(){
+        TreeMap<String, List<Student>> gradebook = new TreeMap<>();
+
+        String[] grade ={"A", "B", "C", "D", "F"};
+
+        for(String a: grade){
+            gradebook.put(a, new ArrayList<>());
+        }
+
+        return gradebook;
+    }
+
+    public int studentCount(){
+        int count = 0;
+        for(Student a: students){
+            if(a != null){
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
